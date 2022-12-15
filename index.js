@@ -12,7 +12,7 @@ const server = http.createServer(app);
 app.get("/", (req, res) => {
   console.log("getting request");
 
-  res.send("Rahil Socket BE App");
+  res.send("Rahil Socket BE App changed");
 });
 const io = new Server(server, {
   cors: {
