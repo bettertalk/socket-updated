@@ -26,6 +26,10 @@ const chat = (io) => {
       console.log("message is--------------------->", message, from, to);
       io.in(room).emit("private message", { message, from, to, fromDoc });
     });
+    socket.on("join", ({ message, from, to, fromDoc }) => {
+      console.log("Link is--------------------->", message, from, to);
+      io.in(room).emit("join", { message, from, to, fromDoc });
+    });
 
     socket.on("accept", ({ state, from, to, id }) => {
       console.log("accept: requested from ", from, "to ", to, "in ", room);
