@@ -23,7 +23,7 @@ const chat = (io) => {
     // });
 
     socket.on("private message", ({ message, from, to, fromDoc }) => {
-      console.log("message is", message, from, to);
+      console.log("message is--------------------->", message, from, to);
       io.in(room).emit("private message", { message, from, to, fromDoc });
     });
 
