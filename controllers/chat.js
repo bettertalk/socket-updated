@@ -32,7 +32,7 @@ const chat = (io) => {
     });
 
     socket.on("accept", ({ state, from, to, id }) => {
-      console.log("accept: requested from ", from, "to ", to, "in ", room);
+      console.log("accept: requested from ---", from, "to ", to, "in ", room);
       io.in(room).emit("accept", { state, from, to, id });
       // console.log('to: ', to);
       // console.log('from: ', from);
@@ -74,4 +74,4 @@ const chat = (io) => {
   });
 };
 
-export default chat;
+module.exports = chat;

@@ -1,7 +1,7 @@
-import chat from "./controllers/chat";
 const express = require("express");
 const app = express();
 const http = require("http");
+const chat = require("./controllers/chat");
 const cors = require("cors");
 const { Server } = require("socket.io");
 app.use(cors());
