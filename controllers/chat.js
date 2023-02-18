@@ -1,14 +1,14 @@
 const socketUserIdsMap = new Map();
 const chat = (io) => {
   io.on("connection", (socket) => {
-    console.log("connection");
+    // console.log("connection");
     let type = socket.handshake.query.userId ? "user" : "doctor";
     let temp = socket.handshake.query.userId
       ? socket.handshake.query.userId
       : socket.handshake.query.docId;
     socketUserIdsMap.set(temp, socket.id);
     let room = socket.handshake.query.appointmentId;
-    console.log(type, " with id ", temp, " joined in room ", room);
+    // console.log(type, " with id ", temp, " joined in room ", room);
     socket.join(room);
 
     // socket.on("private message", ({ message, from, to, fromDoc }) => {
@@ -65,11 +65,11 @@ const chat = (io) => {
 
     // disconnect socket
     socket.on("disconnect", () => {
-      console.log(
-        "user w/ socket & userid, disconnected",
-        socket.id,
-        socket.handshake.query.userId
-      );
+      // console.log(
+      //   "user w/ socket & userid, disconnected",
+      //   socket.id,
+      //   socket.handshake.query.userId
+      // );
     });
   });
 };
