@@ -62,9 +62,17 @@ const chat = (io) => {
     socket.on("typing", function ({ isTyping, whoIsTyping }) {
       io.in(room).emit("typing", { isTyping, whoIsTyping });
     });
+    socket.on("endcall", function ({ status, from, to, id }) {
+      console.log("end call--->", id);
+      io.in(id).emit("endcall", {
+        status: true,
+        callEnd: true,
+        id,
+      });
+    });
 
     // disconnect socket
-    socket.on("disconnect", () => {
+    socket.on("disconnect", ({}) => {
       // console.log(
       //   "user w/ socket & userid, disconnected",
       //   socket.id,
