@@ -8,7 +8,7 @@ const chat = (io) => {
       : socket.handshake.query.docId;
     socketUserIdsMap.set(temp, socket.id);
     let room = socket.handshake.query.appointmentId;
-    // console.log(type, " with id ", temp, " joined in room ", room);
+    console.log(type, " with id ", temp, " joined in room ", room);
     socket.join(room);
 
     // socket.on("private message", ({ message, from, to, fromDoc }) => {
