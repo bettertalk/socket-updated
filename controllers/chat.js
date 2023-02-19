@@ -46,7 +46,7 @@ const chat = (io) => {
       // });
     });
     socket.on("start", ({ state, from, to, id }) => {
-      console.log("start: requested from", from, "to ", to, "in room ", id);
+      console.log("start: requested from", from, "to ", to, "in room ", room);
       io.in(room).emit("start", { state, from, to, id });
       // console.log('to: ', to);
       // let toDestination = socketUserIdsMap.get(`${to}`);
